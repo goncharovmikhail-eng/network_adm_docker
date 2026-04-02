@@ -16,21 +16,22 @@ build:
 git:
 	@echo "[3] Работа с git..."
 
+	@git fetch origin
+
 	@if git show-ref --verify --quiet refs/heads/develop; then \
-		echo "Локальная ветка develop есть"; \
 		git switch develop; \
 	else \
-		echo "Создаём локальную ветку develop"; \
 		git switch -c develop; \
 	fi
 
-	@echo "Пробуем подтянуть изменения с origin..."
-	@git pull --rebase origin develop 2>/dev/null || echo "Нет удалённой ветки — ок"
+	@if git ls-remote --exit-code --heads origin develop >/dev/null 2>&1; then \
+		echo "Синхронизируемся с origin (жёстко)"; \
+		git reset --soft origin/develop || true; \
+	fi
 
 	git add .
 	git commit -m "add dns zone" || echo "Нечего коммитить"
 
-	@echo "Пушим..."
 	git push -u origin develop
 
 all:
