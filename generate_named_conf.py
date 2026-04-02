@@ -41,4 +41,4 @@ os.makedirs(os.path.dirname(main_named_conf), exist_ok=True)
 with open(main_named_conf, 'w') as f:
     f.write(rendered_conf)
 
-print(f"✅ Конфигурация BIND сгенерирована в: {main_named_conf}")
+print(f"Конфигурация BIND сгенерирована в: {main_named_conf}")

@@ -47,12 +47,12 @@ def render_named_include(zone_name, data, output_path):
 
     content = f'''zone "{zone_name}" IN {{
     type master;
-    file "/var/named/{zone_name}/{direct_zone_file}";
+    file "/var/named/zones/{zone_name}/{direct_zone_file}";
 }};
 
 zone "{reverse_zone}" IN {{
     type master;
-    file "/var/named/{zone_name}/{reverse_zone_file}";
+    file "/var/named/zones/{zone_name}/{reverse_zone_file}";
 }};
 '''
     with open(os.path.join(output_path, "named.zones.include"), "w") as f:
@@ -66,7 +66,7 @@ def render_zone_files(zone_name, data):
     render_reverse_zone(zone_name, data, zone_path)
     render_named_include(zone_name, data, zone_path)
 
-    print(f"✅ Сгенерировано: {zone_name}/* , named.zones.include")
+    print(f" Сгенерировано: {zone_name}/* , named.zones.include")
 
 def main():
     zones = load_zones()

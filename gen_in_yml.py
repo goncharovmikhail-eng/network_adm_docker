@@ -90,7 +90,7 @@ def main():
                 ipaddress.IPv4Address(ip)
                 break
             except ipaddress.AddressValueError:
-                print(f"❌ '{ip}' не является корректным IPv4-адресом. Попробуйте снова.")
+                print(f" '{ip}' не является корректным IPv4-адресом. Попробуйте снова.")
 
         records.append({'name': name, 'type': 'A', 'value': ip})
         added_names.add(name)
@@ -117,14 +117,14 @@ def main():
     }
 
     save_zones(zones_data)
-    print(f"\n✅ Зона '{zone_name}' успешно добавлена в {ZONES_YAML_PATH}")
+    print(f"\n Зона '{zone_name}' успешно добавлена в {ZONES_YAML_PATH}")
 
 if __name__ == "__main__":
     try:
         main()
     except KeyboardInterrupt:
-        print("\n❌ Прервано пользователем (Ctrl+C)", file=sys.stderr)
+        print("\nПрервано пользователем (Ctrl+C)", file=sys.stderr)
         sys.exit(1)
     except Exception as e:
-        print(f"❌ Неожиданная ошибка: {e}", file=sys.stderr)
+        print(f"Неожиданная ошибка: {e}", file=sys.stderr)
         sys.exit(1)
