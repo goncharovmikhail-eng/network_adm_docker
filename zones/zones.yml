@@ -16,3 +16,42 @@ craft.tech:
   reverse_zone: 127.1.168.192.in-addr.arpa
   ptr:
     '127': ns.craft.tech.
+ar.int:
+  default_ip: 192.168.221.4
+  records:
+  - name: svx-express-front
+    type: A
+    value: 192.168.221.4
+  - name: svx-express-back
+    type: A
+    value: 192.168.221.5
+  - name: svx-express-bot
+    type: A
+    value: 192.168.221.6
+  - name: svx-express-postgres
+    type: A
+    value: 192.168.221.7
+  - name: svx-express-ekr
+    type: A
+    value: 192.168.221.8
+  - name: svx-express-media
+    type: A
+    value: 192.168.221.9
+  - name: svx-express-rec
+    type: A
+    value: 192.168.221.10
+  - name: '@'
+    type: A
+    value: 192.168.221.4
+  - name: ns
+    type: A
+    value: 192.168.221.4
+  reverse_zone: 221.168.192.in-addr.arpa
+  ptr:
+    '4': ns.ar.int.
+    '5': svx-express-back.ar.int.
+    '6': svx-express-bot.ar.int.
+    '7': svx-express-postgres.ar.int.
+    '8': svx-express-ekr.ar.int.
+    '9': svx-express-media.ar.int.
+    '10': svx-express-rec.ar.int.

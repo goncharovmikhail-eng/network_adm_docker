@@ -66,7 +66,7 @@ def main():
                 ipaddress.IPv4Address(ip)
                 break
             except ipaddress.AddressValueError:
-                print(f"❌ '{ip}' не является корректным IPv4-адресом. Попробуйте снова.")
+                print(f" '{ip}' не является корректным IPv4-адресом. Попробуйте снова.")
 
         records.append({'name': name, 'type': 'A', 'value': ip})
         added_names.add(name)
@@ -116,7 +116,7 @@ zone "{reverse_zone_name}" IN {{
 }};
 ''')
 
-    print(f"\n✅ Зона создана в директории: zones/{zone_name}/")
+    print(f"\n Зона создана в директории: zones/{zone_name}/")
     print(f"📎 Файл для include в named.conf: {named_include_path}")
 
 if __name__ == "__main__":
