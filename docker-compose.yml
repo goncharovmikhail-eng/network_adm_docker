@@ -4,6 +4,7 @@ services:
     container_name: dns
     user: root
     network_mode: host
+    restart: always
     # ports:
     #   - "53:53/udp"
     #   - "53:53/tcp"
