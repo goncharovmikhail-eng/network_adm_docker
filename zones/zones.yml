@@ -16,3 +16,26 @@ craft.tech:
   reverse_zone: 127.1.168.192.in-addr.arpa
   ptr:
     '127': ns.craft.tech.
+crafttech:
+  default_ip: 192.168.1.161
+  records:
+  - name: main
+    type: A
+    value: 192.168.1.161
+  - name: back.express
+    type: A
+    value: 192.168.1.198
+  - name: media.express
+    type: A
+    value: 192.168.1.254
+  - name: '@'
+    type: A
+    value: 192.168.1.161
+  - name: ns
+    type: A
+    value: 192.168.1.161
+  reverse_zone: 1.168.192.in-addr.arpa
+  ptr:
+    '161': ns.crafttech.
+    '198': back.express.crafttech.
+    '254': media.express.crafttech.
